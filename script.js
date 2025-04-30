@@ -78,3 +78,19 @@ document.addEventListener('DOMContentLoaded', () => {
   setupProjectCards();
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const emailText = document.getElementById("emailText");
+  const copyStatus = document.getElementById("copyStatus");
+
+  if (emailText) {
+    emailText.addEventListener("click", () => {
+      navigator.clipboard.writeText(emailText.textContent.trim()).then(() => {
+        copyStatus.style.display = "inline";
+        setTimeout(() => {
+          copyStatus.style.display = "none";
+        }, 2000);
+      });
+    });
+  }
+});
